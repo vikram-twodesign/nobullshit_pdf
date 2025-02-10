@@ -210,7 +210,7 @@ export function HomePage() {
               </svg>
             </a>
           </div>
-          <p>© {new Date().getFullYear()} No BS PDF — Because life's too short for complicated signatures</p>
+          <p>© {new Date().getFullYear()} No BS PDF — Because life's too damn short</p>
         </div>
       </footer>
     </div>
