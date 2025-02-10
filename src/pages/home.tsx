@@ -64,7 +64,7 @@ export function HomePage() {
   }
 
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div className="container mx-auto py-16 px-4 flex-1">
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-24">
         <motion.h1 className="relative flex flex-col items-center justify-center text-5xl font-bold tracking-tight mb-24 mt-24">
@@ -116,28 +116,6 @@ export function HomePage() {
               <SignaturePad onSignatureCapture={setSignatureUrl} />
             </CardContent>
           </Card>
-
-          {/* Action Button - Only show on mobile */}
-          <div className="text-center space-y-4 md:hidden">
-            <Button 
-              size="lg" 
-              className="w-full max-w-sm text-lg h-12 button-primary"
-              onClick={handlePDFGenerate}
-              disabled={isGenerating || !signatureUrl || !pdfFile || !signaturePosition}
-            >
-              {isGenerating ? (
-                <span className="flex items-center gap-2">
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Creating Your PDF...
-                </span>
-              ) : (
-                "Grab Your Signed PDF & Go"
-              )}
-            </Button>
-          </div>
         </div>
 
         {/* Right Column - PDF Upload and Preview */}
@@ -184,32 +162,56 @@ export function HomePage() {
               Your files stay on your device. No sneaky business here.
             </p>
           </div>
+
+          {/* Action Button - Only show on mobile */}
+          <div className="md:hidden text-center space-y-4">
+            <Button 
+              size="lg" 
+              className="w-full max-w-sm text-lg h-12 button-primary"
+              onClick={handlePDFGenerate}
+              disabled={isGenerating || !signatureUrl || !pdfFile || !signaturePosition}
+            >
+              {isGenerating ? (
+                <span className="flex items-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Creating Your PDF...
+                </span>
+              ) : (
+                "Grab Your Signed PDF & Go"
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="max-w-3xl mx-auto mt-24 text-center text-sm text-muted-foreground">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <a 
-            href="https://x.com/vikram_2dsgn" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
-          <a 
-            href="mailto:vikram@twodesign.in"
-            className="hover:text-primary transition-colors"
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current" strokeWidth="2">
-              <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
-          </a>
+      <footer className="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-t">
+        <div className="max-w-3xl mx-auto py-4 px-4 text-center text-sm text-muted-foreground">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <a 
+              href="https://x.com/vikram_2dsgn" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a 
+              href="mailto:vikram@twodesign.in"
+              className="hover:text-primary transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current" strokeWidth="2">
+                <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </a>
+          </div>
+          <p>© {new Date().getFullYear()} No BS PDF — Because life's too short for complicated signatures</p>
         </div>
-        <p>© {new Date().getFullYear()} No BS PDF — Made with �� to complexity</p>
       </footer>
     </div>
   )

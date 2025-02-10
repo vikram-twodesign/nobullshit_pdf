@@ -30,7 +30,7 @@
 
 @layer utilities {
   .desktop-grid {
-    @apply grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12;
+    @apply grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 pb-24;
   }
 
   .desktop-grid > div:first-child {
