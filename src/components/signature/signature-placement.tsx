@@ -51,7 +51,7 @@ export function SignaturePlacement({
   }
 
   // Handle signature resizing
-  const handleResize = (e: React.MouseEvent, corner: string) => {
+  const handleResize = (e: React.MouseEvent) => {
     e.stopPropagation()
     const startX = e.clientX
     const startScale = scale
@@ -116,10 +116,10 @@ export function SignaturePlacement({
             
             {/* Resize handles */}
             <div className="absolute -right-2 -bottom-2 w-4 h-4 bg-primary rounded-full cursor-se-resize opacity-0 group-hover:opacity-100 transition-opacity"
-              onMouseDown={(e) => handleResize(e, 'se')}
+              onMouseDown={handleResize}
             />
             <div className="absolute -left-2 -bottom-2 w-4 h-4 bg-primary rounded-full cursor-sw-resize opacity-0 group-hover:opacity-100 transition-opacity"
-              onMouseDown={(e) => handleResize(e, 'sw')}
+              onMouseDown={handleResize}
             />
           </div>
         </motion.div>

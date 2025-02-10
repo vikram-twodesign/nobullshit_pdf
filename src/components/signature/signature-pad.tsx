@@ -1,7 +1,6 @@
 import { useRef, useState } from "react"
 import SignatureCanvas from "react-signature-canvas"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { ThresholdControl } from "./threshold-control"
 

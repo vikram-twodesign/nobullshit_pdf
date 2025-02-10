@@ -1,9 +1,9 @@
 import * as PDFJS from 'pdfjs-dist'
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry'
 import type { PDFPageProxy } from 'pdfjs-dist'
 
-// Initialize PDF.js worker
-const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry')
-PDFJS.GlobalWorkerOptions.workerSrc = pdfjsWorker
+// Set worker path
+PDFJS.GlobalWorkerOptions.workerSrc = pdfjsWorker as unknown as string
 
-export const pdfjs = PDFJS
+export { PDFJS }
 export type { PDFPageProxy } 

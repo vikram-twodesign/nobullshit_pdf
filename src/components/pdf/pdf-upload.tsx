@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress"
 import { useToast } from "@/hooks/use-toast"
 import { motion, AnimatePresence } from "framer-motion"
 import { type PDFDocument } from "@/types"
-import { pdfjs, type PDFPageProxy } from "@/lib/pdf"
+import { PDFJS, type PDFPageProxy } from "@/lib/pdf"
 import { SignaturePlacement } from "@/components/signature/signature-placement"
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
@@ -99,7 +99,7 @@ export function PDFUpload({
       }, 100)
 
       const arrayBuffer = await file.arrayBuffer()
-      const pdfDoc = await pdfjs.getDocument(arrayBuffer).promise
+      const pdfDoc = await PDFJS.getDocument(arrayBuffer).promise
       const totalPages = pdfDoc.numPages
       const pagePromises = []
 
