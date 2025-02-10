@@ -1,0 +1,43 @@
+@import './styles/themes.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card-hover {
+    @apply border shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .button-primary {
+    @apply bg-primary text-primary-foreground shadow-sm 
+           transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 
+           active:translate-y-0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .desktop-grid {
+    @apply grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12;
+  }
+
+  .desktop-grid > div:first-child {
+    @apply md:col-span-4;
+  }
+
+  .desktop-grid > div:last-child {
+    @apply md:col-span-8;
+  }
+}
