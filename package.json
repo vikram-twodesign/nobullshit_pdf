@@ -20,6 +20,7 @@
     "@radix-ui/react-toast": "^1.2.4",
     "@types/pdfjs-dist": "^2.10.377",
     "@types/react-signature-canvas": "^1.0.6",
+    "@vercel/analytics": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.0",
